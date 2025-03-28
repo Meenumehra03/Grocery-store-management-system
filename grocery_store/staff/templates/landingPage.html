@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery store </title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'staff\style.css' %}">
+
+
+
+</head>
+
+<body>
+
+    <!--header section starts -->
+    <section class="header">
+
+        <a href="#" class="logo"> <i class="fas fa-shopping-basket"></i>Grocery</a>
+
+        <nav class="navbar">
+            <a href="#Home">home</a>
+            <a href="#Features">features</a>
+            <a href="#Product">product</a>
+            <a href="Categories">categories</a>
+            <a href="#Review">review</a>
+            <a href="#Blogs">blogs</a>
+            <a href="#Content">content</a>
+            <a href="login">Login</a>
+            <a href="inventory">Inventory</a>
+            <a href="order">Order</a>
+            <a href="addstock">AddStock</a>
+            <a href="sale">sale</a>
+        </nav>
+
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="fas fa-user" id="login-btn"></div>
+        </div>
+
+        <form class="search-form ">
+            <input type="search" id="search-box" blaceholder="search here..." name="">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="shopping-cart">
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="https://th.bing.com/th/id/OIP.Z2jkKxqoXSp6GgjgnI2AfQHaFh?w=237&h=180&c=7&r=0&o=5&pid=1.7"
+                    alt="klasdjf">
+                <div class="content">
+                    <h1>watermelon</h1>
+                    <span class="price">Rs.120/-</span>
+                    <span class="quantity">qty:1</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="https://www.oneindia.com/vegetables-price/vegatableimages/Onion-Small.jpg">
+                <div class="content">
+                    <h2>onion</h2>
+                    <span class="price">Rs.150/-</span>
+                    <span class="quantity">qty : 1</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img
+                    src="data:image/jpeg;base64,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">
+                <div class="content">
+                    <h3>Apple</h3>
+                    <span class="price">Rs.100/-</span>
+                    <span class="quantity">qty : 1</span>
+                </div>
+            </div>
+
+            <div class="total"> total : Rs.370/-</div>
+            <a href="#" class="btn">checkout</a>
+        </div>
+
+
+
+        <form action="" class="login-form">
+            <h3>login now</h3>
+            <input type="email" placeholder="enter your email" class="box">
+            <input type="password" placeholder="enter your password" class="box">
+            <p>forget password<a href="#">click here</a></p>
+            <p>don't have an account <a href="#">create how</a></p>
+            <input type="submit" value="login now" class="btn" name="">
+
+        </form>
+    </section>
+
+
+    <!-- <header section ends -->
+
+    <!-- home section starts    -->
+
+    <section class="home" id="home">
+        <div class="content">
+            <h3>fresh and <span>organic</span> products for your</h3>
+            <p>Grocery Items . . means Farhanfood and foodstuffs,green groceries, beverages and
+                household goods usually prepacked...</p>
+            <a href="#" class="btn">shop now</a>
+        </div>
+
+    </section>
+
+    <!-- home section ends -->
+
+    <!-- features section starts -->
+
+    <section class="features" id="features">
+        <h1 class="heading"> our <span>features</span></h1>
+        <div class="box-container">
+
+            <div class="box">
+                <img
+                    src="https://tse4.mm.bing.net/th/id/OIP.AHfSX7viW1JIKV6oKdq1YQHaFj?w=231&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+                <h3>fresh and organic</h3>
+                <p>Grocery Items . . means Farhanfood and foodstuff, green groceries,beverages and
+                    household goods usually prepacked...</p>
+                <a href="#" class="btn">read more</a>
+
+            </div>
+
+            <div class="box">
+                <img
+                    src="https://tse1.mm.bing.net/th/id/OIP.hJr2myluo2hsRgLY17Y03AHaD_?w=269&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+
+                <h3>free delivery</h3>
+                <p>Grocery Items . . means Farhanfood and foodstuffs, green groceries, beverages and
+                    household goods usually prepacked...</p>
+                <a href="#" class="btn">read more</a>
+
+            </div>
+            <div class="box">
+
+                <img
+                    src="https://tse1.mm.bing.net/th/id/OIP.xtq44iMmFoJgJ_EwKjU1SAAAAA?w=156&h=176&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+                <h3>easy payment</h3>
+                <p>Grocery Items . . means Farhanfood and foodstuffs, green groceries, beverages and
+                    household goods usually prepacked...</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+    </section>
+
+    <!-- features section ends -->
+
+    <!-- products section starts -->
+
+    <section class="products" id="products">
+        <h1 class="heading"> our <span>products</span></h1>
+        <div class="swiper product-slider">
+            <div class="swiper-wrapper wrapper">
+                <div class="swiper-slide box">
+                    <img
+                        src="https://tse1.mm.bing.net/th/id/OIP.uDiu_xE4bm2QJa8JNtOHiwHaFj?w=265&h=199&c=7&r=0&o=5&pid=1.7">
+                    <h3>fresh mango</h3>
+                    <div class="price">Rs 150 /-</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+                <div class="swiper-slide box">
+                    <img
+                        src="https://tse1.mm.bing.net/th/id/OIP.BdsBrLO_zK9albhrbBZingHaHa?w=189&h=189&c=7&r=0&o=5&pid=1.7">
+                    <h3>fresh potatoes</h3>
+                    <div class="price">Rs 60 /-</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+                <div class="swiper-slide box">
+                    <img
+                        src="https://tse3.mm.bing.net/th/id/OIP.XfT1qFhZjPcrdiQDP7AZDwHaF7?w=208&h=180&c=7&r=0&o=5&pid=1.7">
+                    <h3>fresh orange</h3>
+                    <div class="price">Rs 100/-</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+                <div class="swiper-slide box">
+
+                    <img
+                        src="https://tse2.mm.bing.net/th/id/OIP.n8utM1mKf0kFNUR-bg9rswHaE7?w=291&h=193&c=7&r=0&o=5&pid=1.7">
+                    <h3>fresh cabbage</h3>
+                    <div class="price">Rs 50/-</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+                <div class="swiper-slide box">
+                    <img
+                        src="https://tse2.mm.bing.net/th/id/OIP.3L8MUaFiOpTjzGpamTXRdwHaHZ?w=198&h=197&c=7&r=0&o=5&pid=1.7">
+                    <h3>fresh onion</h3>
+                    <div class="price">Rs 120 /-</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+                <div class="swiper-slide box">
+                    <img
+                        src="https://tse3.mm.bing.net/th/id/OIP.n2guFcNcTrrTxLvJSaHHTgHaGA?w=247&h=201&c=7&r=0&o=5&pid=1.7">
+                    <h3>fresh avocada</h3>
+                    <div class="price">Rs200 /-</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+                <div class="swiper-slide box">
+                    <img
+                        src="https://tse1.mm.bing.net/th/id/OIP.J2nYT0UOEjPOF2FXxpeYRQHaE8?w=269&h=180&c=7&r=0&o=5&pid=1.7">
+                    <h3>fresh carrot</h3>
+                    <div class="price">Rs 80/-</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+                <div class="swiper-slide box">
+                    <img
+                        src="https://tse2.mm.bing.net/th/id/OIP.1L3RiXs4uZ07yJb2uZa-SwHaGc?w=217&h=189&c=7&r=0&o=5&pid=1.7">
+                    <h3>green lemon</h3>
+                    <div clsss="price">Rs 80/-</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+            </div>
+
+    </section>
+
+    <!-- products section ends -->
+
+    <!-- categories section start -->
+
+    <section class="categories" id="categories">
+        <h1 class="heading"> product <samp>categories</samp></h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img
+                    src="https://tse4.mm.bing.net/th/id/OIP.40MsSqBdmqwQf5JckS4wzwHaF4?w=214&h=180&c=7&r=0&o=5&pid=1.7">
+                <h3>vegetables</h3>
+                <p>upto 45% off</p>
+                <a href="#" class="btn">shop now</a>
+            </div>
+
+            <div class="box">
+                <img
+                    src="https://tse4.mm.bing.net/th/id/OIP.gdStULoVuRk5nYBSzBvQ5QHaEO?w=306&h=180&c=7&r=0&o=5&pid=1.7">
+                <h3>fresh fruits</h3>
+                <p>upto 45% off</p>
+                <a href="#" class="btn">shop now</a>
+            </div>
+
+            <div class="box">
+                <img
+                    src="https://tse4.mm.bing.net/th/id/OIP.0R5mJk_WLOm_l-hAnu3uhgHaEi?w=319&h=195&c=7&r=0&o=5&pid=1.7">
+                <h3>dairy product</h3>
+                <p>upto 45% off</p>
+                <a href="#" class="btn">shop now</a>
+            </div>
+
+            <div class="box">
+                <img
+                    src="https://tse1.mm.bing.net/th/id/OIP.UqkINyMwSIwTf5VIymv4EQHaE8?w=269&h=180&c=7&r=0&o=5&pid=1.7">
+                <h3>pulses</h3>
+                <p>upto 45% off</p>
+                <a href="#" class="btn">shop now</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- categories section ends -->
+
+    <!--review section starts -->
+
+    <section class="review" id="review">
+        <h1 class="heading">customer's <span>review</span></h1>
+
+        <div class="swiper review-slider">
+            <div class="swiper-wrapper ">
+
+                <div class="swiper-slide box">
+                    <img
+                        src="https://tse1.mm.bing.net/th/id/OIP.rdvSPojIuSBEMytQSi8GSQAAAA?w=115&h=180&c=7&r=0&o=5&pid=1.7">
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing farhan, sed do eiusmod tempor
+                        incididunt ut labore at dolor magna aliqua. </p>
+                    <h3>Edward Bey</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img
+                        src="https://tse2.mm.bing.net/th/id/OIP.202VP2_FciWNBci_d5ND5wHaLH?w=115&h=180&c=7&r=0&o=5&pid=1.7">
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing farhan, sed do eiusmod tempor
+                        incididunt ut labore at dolor magna aliqua. </p>
+                    <h3>jenna bey</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img
+                        src="https://tse4.mm.bing.net/th/id/OIP.zrhyB4rsd9cm7nFMQ51TcgHaJ0?w=137&h=181&c=7&r=0&o=5&pid=1.7">
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing farhan, sed do eiusmod tempor
+                        incididunt ut labore at dolor magna aliqua. </p>
+                    <h3>Edward bey</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img
+                        src="https://tse1.mm.bing.net/th/id/OIP._UERYrfZQ9xSmpgcNxorYgHaLH?w=143&h=214&c=7&r=0&o=5&pid=1.7">
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing farhan, sed do eiusmod tempor
+                        incididunt ut labore at dolor magna aliqua. </p>
+                    <h3>lisa bey</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img
+                        src="https://tse1.mm.bing.net/th/id/OIP.aZqdt350Uv17Q2BuVUlhHQHaEe?w=252&h=180&c=7&r=0&o=5&pid=1.7 ">
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing farhan, sed do eiusmod tempor
+                        incididunt ut labore at dolor magna aliqua. </p>
+                    <h3>Edward Bey</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+
+
+    </section>
+
+    <!-- review  section ends -->
+
+    <!-- blog  section start -->
+
+    <section class="blogs" id="blog">
+        <h1 class="heading"> our <span>blogs</span></h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="https://th.bing.com/th/id/OIP.CTPhkDxVXqJ7XnPfENrTgAHaEg?w=315&h=192&c=7&r=0&o=5&pid=1.7">
+                <div class="content">
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-user"></i> by user</a>
+                        <a href="#"> <i class="fas fa-calender"></i> Ist jan, 2025</a>
+                    </div>
+                    <h3>fresh and organic vegetablesand fruits</h3>
+                    <p>Grocery Items . . means Farhanfood and foodstuffs, green groceries, beverages and
+                        household goods usually prepacked...</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="https://th.bing.com/th/id/OIP.RO9p_ROtkdDxn8pQs2mhIwAAAA?w=308&h=197&c=7&r=0&o=5&pid=1.7">
+                <div class="content">
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-user"></i> by user</a>
+                        <a href="#"> <i class="fas fa-calender"></i> Ist jan, 2025</a>
+                    </div>
+                    <h3>fresh and organic vegetables and fruits</h3>
+                    <p>Grocery Items . . means Farhanfood and foodstuffs, green groceries, beverages and
+                        household goods usually prepacked...</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://th.bing.com/th/id/OIP.SS-h6qAMC2oa6SCD9hSwrwHaE7?w=278&h=185&c=7&r=0&o=5&pid=1.7">
+                <div class="content">
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-user"></i> by user</a>
+                        <a href="#"> <i class="fas fa-calender"></i> Ist jan,2025</a>
+                    </div>
+                    <h3>fresh and organic vegetables and fruits</h3>
+                    <p>Grocery Items . . means Farhanfood and foodstuffs, green groceries, beverages and
+                        household goods usually prepacked...</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--- blogs section ends -->
+
+    <!--- footer section starts -->
+
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>grocery <i class="fas fa-shopping-basket"></i></h3>
+                <p>Grocery Items . . means Farhanfood and foodstuffs, green groceries, beverages and
+                    household goods usually prepacked...</p>
+                <div class="share">
+                    <a href="#" class="fab fa-meta"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#" class="links"><i class="fas fa-phone"></i> +123-443-5678</a>
+                <a href="#" class="links"><i class="fas fa-phone"></i> +444-222-5678</a>
+                <a href="#" class="links"><i class="fas fa-envolope"></i> shaikhfarhan@gmail.com</a>
+                <a href="#" class="links"><i class="fas fa-map-marker-alt"></i> mumbai, india - 401203</a>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#" class="links"><i class="fas fa-arrow-right"></i> home</a>
+                <a href="#" class="links"><i class="fas fa-arrow-right"></i> features</a>
+                <a href="#" class="links"><i class="fas fa-arrow-right"></i> products</a>
+                <a href="#" class="links"><i class="fas fa-arrow-right"></i> categories</a>
+                <a href="#" class="links"><i class="fas fa-arrow-right"></i> review</a>
+                <a href="#" class="links"><i class="fas fa-arrow-right"></i> blogs</a>
+            </div>
+
+            <div class="box">
+                <h3>newsletter</h3>
+                <p>subscribe for latest update</p>
+                <input type="email" placeholder="enter your email" class="email" name="">
+                <input type="submit" value="subscribe" class="btn" name="">
+                <!-- <img src="img/payment.png" class="payment-img"> -->
+            </div>
+        </div>
+        <div class="credit"> created by <span>dailywebdesign</span> || all right reserved</div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- custom js file link -->
+
+    <script src="{% static 'staff\script.js' %}"></script>
+</body>
+
+</html>
