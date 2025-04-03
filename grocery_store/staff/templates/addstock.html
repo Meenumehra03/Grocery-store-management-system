@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <title>Add stock Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'staff\addstock.css' %}">
+    <link rel="stylesheet" href="{% static 'staff\add_stock.css' %}">
 </head>
 <body>
     <div class="container">
         <div class="title">Addstock</div>
-        <form action="#">
+        <form id="add_stock">
+            {% csrf_token %}
             <div class="user-details">
                 <div class="input-box">
                     <span class="details"> Item:</span>
@@ -33,6 +34,8 @@
                 <input type="submit" value="ADDSTOCK">
             </div>
         </form>
-        <div>
+    </div>
+
+    <script src="{"staff/add_stock.js" %}"></script>
 </body>
 </html>

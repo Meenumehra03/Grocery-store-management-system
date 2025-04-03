@@ -6,8 +6,10 @@ urlpatterns = [
     path("login", views.loginPage),
     path("dashboard", views.dashboardPage),
     path("api/login", views.login_view),
+    path("api/add_stock", views.add_stock_view),
     path("inventory", views.inventoryPage),
     path("orders", views.orderPage),
-    path("addstock", views.addstockPage),
+    path("add_stock", views.add_stock_view),
     path("sale", views.salePage),
+    path("dailyreport", views.dailyreport),
 ]

@@ -68,7 +68,6 @@ def login_view(request):
         print(data)
         username = data.get('login_username')
         password = data.get('login_password')
-
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
@@ -129,9 +128,32 @@ def orderPage(request):
         context["orders"].append(temp)
     return render(request,"order.html", context)
 
-def addstockPage(request):
-    return render(request,"addstock.html")
+@csrf_exempt
+def add_stock_view(request):
+     if request.method == "POST":
+        data = json.loads(request.body)
+        item_name = data.get('item_name')
+        item_category = data.get('item_category')
+        item_price = data.get('item_price')
+        item_quantity = data.get('item_quantity')
+
+        item_name = str(item).lower()
+        item_category = str(item_category).lower()
+
+        cat, created_cat = Category.objects.get_or_create(name=item_category)
+
+        item, created_item = Item.objects.get_or_create(name=item_name, category=cat, price=item_price, quantity=item_quantity)
+        
+        if created_item:
+            return JsonResponse({"success": True})
+        else:
+            return JsonResponse({"success": False, 'message': 'Item already exited'})
+   
 
 def salePage(request):
     return render(request,"sale.html")
+
+def dailyreport(request):
+    return render(request,"dailyreport.html")
+
     
