@@ -53,28 +53,24 @@
                 </a>
             </li>
             <li class="sidebar-list-item">
+                <a href="inventory">
                 <span class="material-icons-outlined">inventory_2</span> Products
+                </a>
             </li>
 
             <li class="sidebar-list-item">
-                <span class="material-icons-outlined">category</span> Categories
+                <a href="orders">
+                <span class="material-icons-outlined">groups</span> orders
+            </a>
             </li>
 
             <li class="sidebar-list-item">
-                <span class="material-icons-outlined">groups</span> Customers
-            </li>
-
-            <li class="sidebar-list-item">
-                <span class="material-icons-outlined">fact_check</span> Inventory
-            </li>
-
-            <li class="sidebar-list-item">
+                <a href="dailyreport">
                 <span class="material-icons-outlined">poll</span> Reports
+                </a>
             </li>
 
-            <li class="sidebar-list-item">
-                <span class="material-icons-outlined">settings</span> Settings
-            </li>
+         
 
 
 
@@ -142,6 +138,10 @@
         <!--End Main-->
 
        </div>
+
+       <!-- JSON Data for JS -->
+        {{  top_product|json_script:"top-products-data" }}
+        {{ sales_data|json_script:"sales-data"}}
       
        <!--Scripts-->
        <!--ApexCharts-->

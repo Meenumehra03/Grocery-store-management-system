@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Add stock Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'staff\add_stock.css' %}">
+    <link rel="stylesheet" href="{% static 'staff\addstock.css' %}">
 </head>
 <body>
     <div class="container">
@@ -15,19 +15,19 @@
             <div class="user-details">
                 <div class="input-box">
                     <span class="details"> Item:</span>
-                    <input type="text" placeholder="Enter item name" required>
+                    <input type="text" placeholder="Enter item name" name="item_name" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Cat:</span>
-                    <input type="text" placeholder="Enter cat name" required>
+                    <input type="text" placeholder="Enter cat name" name="item_category" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Price:</span>
-                    <input type="text" placeholder="Enter  price" required>
+                    <input type="text" placeholder="Enter  price" name="item_price" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Quantity:</span>
-                    <input type="text" placeholder="Enter  quantity" required>
+                    <input type="text" placeholder="Enter  quantity" name="item_quantity" required>
                 </div>
             </div>
             <div class="button">
@@ -36,6 +36,6 @@
         </form>
     </div>
 
-    <script src="{"staff/add_stock.js" %}"></script>
+    <script src='{% static "staff/addstock.js" %}'></script>
 </body>
 </html>
